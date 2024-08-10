@@ -9,8 +9,7 @@ class CustomListHomeViewItems extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.33,
-        width: MediaQuery.of(context).size.width * 0.45,
+        width: MediaQuery.of(context).size.width * 0.40,
         decoration: BoxDecoration(
           color: Colors.red,
           image: const DecorationImage(
