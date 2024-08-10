@@ -1,7 +1,7 @@
-import 'package:booklyapp/core/utils/assets.dart';
+import 'package:booklyapp/constants.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:booklyapp/feature/home/presentation/views/widgets/custom_list_home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -9,8 +9,11 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomAppBar(),
+        CustomListHomeViewItems(),
       ],
     );
   }
