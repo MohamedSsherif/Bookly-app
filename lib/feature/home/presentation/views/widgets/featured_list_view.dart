@@ -13,7 +13,7 @@ class FeaturedBooksListView extends StatelessWidget {
            shrinkWrap: true,
         itemBuilder:(context,index){
          
-        return const CustomListHomeViewItems();
+        return const CustomBookImage();
       } ),
     );
   }
