@@ -6,11 +6,9 @@ class CustomBookImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
+    return AspectRatio(
+      aspectRatio: 2.7 / 3.6,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.45,
-        height: MediaQuery.of(context).size.height * 0.35,
         decoration: BoxDecoration(
           color: Colors.red,
           image: const DecorationImage(
