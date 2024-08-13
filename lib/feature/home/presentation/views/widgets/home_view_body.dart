@@ -5,6 +5,7 @@ import 'package:booklyapp/feature/home/presentation/views/widgets/best_seller_li
 import 'package:booklyapp/feature/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -29,9 +30,12 @@ class HomeBody extends StatelessWidget {
           ),
           SizedBox(height: 20),
           BestSellerListViewItem(),
+      
+          
         ],
       ),
     );
   }
 }
+
 
