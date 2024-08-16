@@ -12,15 +12,15 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: '/homeView',
-       builder: (context, state) => const HomeView(),
-       ),
-     GoRoute(
+      builder: (context, state) => const HomeView(),
+    ),
+    GoRoute(
       path: '/BookDetailesView',
-       builder: (context, state) => const BookDetailsView(),
-       ),   
-       GoRoute(
+      builder: (context, state) => const BookDetailsView(),
+    ),
+    GoRoute(
       path: '/Search',
-       builder: (context, state) => const SearchViewBody(),
-       ), 
+      builder: (context, state) => const SearchViewBody(),
+    ),
   ]);
 }

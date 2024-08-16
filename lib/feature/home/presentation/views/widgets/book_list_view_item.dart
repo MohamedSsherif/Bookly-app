@@ -10,7 +10,7 @@ class BookListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push('/BookDetailesView');
       },
       child: Padding(
@@ -52,14 +52,14 @@ class BookListViewItem extends StatelessWidget {
                     'J.K. Rowling',
                     style: Styles.textStyle14,
                   ),
-                   const SizedBox(height: 3),
+                  const SizedBox(height: 3),
                   Row(children: [
                     Text('19.99 @',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         )),
-                        const Spacer(),
-                        const BookRating(),
+                    const Spacer(),
+                    const BookRating(),
                   ])
                 ],
               ),
