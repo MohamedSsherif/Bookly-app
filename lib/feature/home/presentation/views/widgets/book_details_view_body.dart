@@ -3,7 +3,7 @@ import 'package:booklyapp/core/widgets/custom_button.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/books_action.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/custom_books_details_appbar.dart';
-import 'package:booklyapp/feature/home/presentation/views/widgets/custom_list_home_view.dart';
+import 'package:booklyapp/feature/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
