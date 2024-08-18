@@ -14,7 +14,10 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/BookDetailesView');
+        GoRouter.of(context).push(
+          '/BookDetailesView',
+          extra: bookModel,
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -24,7 +27,8 @@ class BookListViewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomBookImage(
-                  imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0'),
+                  imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                      'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0'),
               const SizedBox(width: 30),
               Expanded(
                 child: Column(
@@ -42,21 +46,20 @@ class BookListViewItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 3),
-                     Text(
+                    Text(
                       bookModel.volumeInfo.authors![0],
                       style: Styles.textStyle14,
                       maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 3),
                     Row(children: [
-                      Text(
-                          'Free',
+                      Text('Free',
                           style: Styles.textStyle20.copyWith(
                             fontWeight: FontWeight.bold,
                           )),
                       const Spacer(),
-                       BookRating(
+                      BookRating(
                         rating: 4,
                         count: 2945,
                       ),
