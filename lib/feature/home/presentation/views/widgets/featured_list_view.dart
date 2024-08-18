@@ -1,11 +1,14 @@
 import 'package:booklyapp/core/widgets/custom_error_widget.dart';
+import 'package:booklyapp/feature/home/data/models/book_model/book_model.dart';
 import 'package:booklyapp/feature/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +22,14 @@ class FeaturedBooksListView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return  CustomBookImage(
-                  imageUrl:   state.books[index].volumeInfo.imageLinks?.thumbnail??'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0',
+                  return  GestureDetector(
+                    onTap: () => GoRouter.of(context).push(
+                      '/BookDetailesView',
+                      extra : state.books[index],
+                    ),
+                    child: CustomBookImage(
+                    imageUrl:   state.books[index].volumeInfo.imageLinks?.thumbnail??'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0',
+                    ),
                   );
                 }),
           );

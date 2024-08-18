@@ -1,5 +1,6 @@
 import 'package:booklyapp/core/utils/styles.dart';
 import 'package:booklyapp/core/widgets/custom_button.dart';
+import 'package:booklyapp/feature/home/data/models/book_model/book_model.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/books_action.dart';
 import 'package:booklyapp/feature/home/presentation/views/widgets/custom_books_details_appbar.dart';
@@ -9,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -22,21 +23,23 @@ class BookDetailsViewBody extends StatelessWidget {
               children: [
                 const CustomBookDetailsAppBar(),
                 Padding(
-                  padding: EdgeInsets.only(top: 24.0),
+                  padding:const EdgeInsets.only(top: 24.0),
                   child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
-                      child: const CustomBookImage(
-                        imageUrl: 'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0',
+                      child:  CustomBookImage(
+                        imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                            'https://th.bing.com/th/id/R.e10635ff3da0341144bdfddbbfe067be?rik=bSbed0euVqUutQ&riu=http%3a%2f%2fwww.fosternow.com.au%2fwp-content%2fuploads%2f2015%2f06%2fpicture-books-for-children-books.jpg&ehk=d2pVJFGXrW2pQmv3IcW2JFEbw%2bHjStz0jS5CgD80kKA%3d&risl=&pid=ImgRaw&r=0',
                       )),
                 ),
                 const SizedBox(height: 25),
-                const Text(
-                  'The Jungle Book',
+                 Text(
+                  bookModel.volumeInfo.title!,
                   style: Styles.textStyle30,
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'Rudyard Kipling',
+                  bookModel.volumeInfo.authors![0],
                   style: Styles.textStyle18.copyWith(
                       color: Colors.grey, fontStyle: FontStyle.italic),
                 ),
@@ -47,7 +50,9 @@ class BookDetailsViewBody extends StatelessWidget {
                   count: 2945,
                 ),
                 const SizedBox(height: 20),
-                const BookAction(),
+                 BookAction(
+                  bookModel: bookModel,
+                ),
                 const Expanded(child: SizedBox(height: 15)),
                 Align(
                     alignment: Alignment.bottomLeft,
