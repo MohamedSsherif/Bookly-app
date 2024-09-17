@@ -36,6 +36,8 @@ class BookDetailsViewBody extends StatelessWidget {
                   bookModel.volumeInfo.title!,
                   style: Styles.textStyle30,
                   textAlign: TextAlign.center,
+                  maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 6),
                 Text(

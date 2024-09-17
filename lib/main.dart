@@ -4,11 +4,10 @@ import 'package:booklyapp/core/utils/service_locator.dart';
 import 'package:booklyapp/feature/home/data/repos/home_repo_impl.dart';
 import 'package:booklyapp/feature/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:booklyapp/feature/home/presentation/manager/newset_books_cubit/newset_books_cubit.dart';
-import 'package:booklyapp/feature/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
-import 'package:booklyapp/feature/splash/presentation/views/splash_view.dart';
+import 'package:booklyapp/feature/search/data/repos/search_repo_impl.dart';
+import 'package:booklyapp/feature/search/presentation/manager/search_book_cubit/search_book_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -35,7 +34,13 @@ class BooklyApp extends StatelessWidget {
             getIt.get<HomeRepoImpl>(),
           )..fetchFeaturedBooks(),
         ),
+        BlocProvider(
+          create: (context) => SearchCubit(
+            getIt.get<SearchRepoImpl>(),
+          ),
+        ),
       ],
+      
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
